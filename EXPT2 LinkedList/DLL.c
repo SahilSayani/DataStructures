@@ -133,6 +133,7 @@ int main() {
     InsertAtTail(6);
     InsertAtTail(8);  
     insertPos(10,5);
+	Print();
 	deletePos(3);
     Print(); 
     ReversePrint();
