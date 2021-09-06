@@ -75,6 +75,25 @@ void insertPos(int x, int pos){ // 1   2   3   4   5
     return;
 
 }
+
+void deletePos(int pos){
+struct Node* curr=head; 
+if(pos==1){
+    free (head);
+    head=curr->next;
+    return;
+}
+for (int i = 1; i <=pos-2 && curr!=NULL; i++)
+{
+    curr=curr->next;
+}
+
+struct Node* temp=curr->next;
+curr->next=temp->next;
+temp->next->prev=curr;
+free (temp);
+}
+
 //Prints all the elements in linked list in forward traversal order
 void Print() {
 	struct Node* temp = head;
@@ -114,6 +133,7 @@ int main() {
     InsertAtTail(6);
     InsertAtTail(8);  
     insertPos(10,5);
+	deletePos(3);
     Print(); 
     ReversePrint();
 }
